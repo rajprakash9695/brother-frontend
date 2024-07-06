@@ -1,0 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.heroCustom {
+  background: linear-gradient(97.75deg, #1e1e9a -30.35%, #007aff 115.26%);
+}
