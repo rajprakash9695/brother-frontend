@@ -1,4 +1,4 @@
-import CustomButton from '../CustomButton';
+import CustomButton from "../CustomButton";
 
 export default function WhoWeAre() {
   return (
@@ -52,7 +52,7 @@ export default function WhoWeAre() {
                 voluptas accusamus! Sit, sapiente harum!
               </p>
             </div>
-            <CustomButton bgColor="[#007aff]" text="Contact Us" />
+            <CustomButton bgColor="[#007aff]" text="Contact Us" color="white" />
           </div>
         </div>
       </div>
