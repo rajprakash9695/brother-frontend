@@ -6,7 +6,7 @@ interface IProps {
   img: string;
   title: string;
   description: string;
-  lists: { items: string }[];
+  lists: any;
   to: string;
 }
 
@@ -19,23 +19,16 @@ export default function ServiceCard({
 }: IProps) {
   return (
     <div>
-      <div className=" box-content p-6 border-2 shadow-xl  rounded-xl bg-white">
-        <div className="h-18 w-18 ">
-          <img src={img} alt={title} />
+      <div className=" w-72 md:w-80  box-content p-6 border-2 shadow-xl  rounded-xl bg-white">
+        <div className="h-20 w-20 object-cover  w-fit">
+          <img src={img} alt={title} className="w-full h-full" />
         </div>
-        <h3 className="text-xl font-semibold my-3">{title}</h3>
-        <p className="w-80 text-sm text-gray-600">{description}</p>
+        <h3 className="text-xl font-semibold my-3 text-black">{title}</h3>
+        <p className=" text-sm text-gray-600 w-54">{description}</p>
 
-        <ul className="mt-4 text-[15px]">
-          {lists.length &&
-            lists.map((item) => (
-              <li className="flex items-center gap-1">
-                <TiTick /> {item.items}
-              </li>
-            ))}
-        </ul>
+        <ul className="mt-4 text-[15px] text-black">{<li>{lists}</li>}</ul>
         <Link to={to}>
-          <button className="mt-4 text-sm underline flex gap-1 items-center hover:text-blue-700">
+          <button className="mt-4 text-sm border-b border-gray-800 flex gap-1 items-center text-black hover:text-blue-700">
             Readmore <GoArrowUpRight />
           </button>
         </Link>

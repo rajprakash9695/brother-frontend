@@ -41,7 +41,7 @@ function Navbar() {
                 </li>
                 <li>
                   <Link to="/register">
-                    <button className="flex items-center gap-1 font-semibold bg-[#007aff] text-white px-5 py-2 rounded-full">
+                    <button className="flex items-center gap-1 font-semibold bg-[#007aff] text-white px-5 py-4 rounded-full">
                       Register <GoArrowUpRight />
                     </button>
                   </Link>
