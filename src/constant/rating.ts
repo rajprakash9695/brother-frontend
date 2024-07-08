@@ -8,12 +8,12 @@ const CRating: IRating[] = [
   {
     img: 'https://img.icons8.com/?size=48&id=FZAVbxBN60gj&format=png',
     title: '24/7',
-    description: 'Support anytime, anywhere ',
+    description: 'Support any time, anywhere ',
   },
   {
     img: 'https://img.icons8.com/?size=64&id=43666&format=png',
     title: '2 hour',
-    description: 'Average response time',
+    description: 'Average res ponse time',
   },
   {
     img: 'https://img.icons8.com/?size=80&id=97612&format=png',

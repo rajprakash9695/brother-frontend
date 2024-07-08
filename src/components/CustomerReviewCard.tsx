@@ -16,7 +16,7 @@ export default function CustomReviewCard({
 }: IProps) {
   return (
     <div>
-      <div className="w-72 md:w-96  border p-8 rounded-xl bg-white relative">
+      <div className="w-72 md:w-96  border p-4 md:p-8 rounded-xl bg-white relative">
         <img
           src={img}
           alt="avator"

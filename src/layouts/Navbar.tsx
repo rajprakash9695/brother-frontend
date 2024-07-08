@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
-
+import { CgMenuRightAlt } from 'react-icons/cg';
 import { GoArrowUpRight } from 'react-icons/go';
+import { IoClose } from 'react-icons/io5';
+import { useState } from 'react';
 
 const NavbarList = [
-  { title: 'Home', to: '/home' },
+  { title: 'Home', to: '/' },
   { title: 'About Us', to: '/about' },
   { title: 'Services', to: '/service' },
   { title: 'Features', to: '/feature' },
@@ -11,6 +13,16 @@ const NavbarList = [
 ];
 
 function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="fixed w-full z-50">
       <div className="bg-white">
@@ -25,7 +37,7 @@ function Navbar() {
                 />
               </Link>
             </div>
-            <div>
+            <div className="hidden md:block">
               <ul className="flex gap-5 ">
                 {NavbarList.map((items) => (
                   <li>
@@ -34,7 +46,7 @@ function Navbar() {
                 ))}
               </ul>
             </div>
-            <div>
+            <div className="hidden md:block">
               <ul className="flex gap-5 items-center">
                 <li>
                   <Link to="/login">Login</Link>
@@ -48,9 +60,34 @@ function Navbar() {
                 </li>
               </ul>
             </div>
+            <div className="md:hidden">
+              {open ? (
+                <IoClose className="text-4xl" onClick={onClose} />
+              ) : (
+                <CgMenuRightAlt className="text-4xl" onClick={handleOpen} />
+              )}
+            </div>
           </div>
         </div>
       </div>
+      <dialog open={open} onClose={onClose} className="w-full md:hidden ">
+        <div className=" w-full z-10" onClick={onClose}>
+          <div className="relative">
+            <div className="absolute right-0 bg-sky-100  w-44 p-2 rounded-bl-xl">
+              <ul className="leading-7 ">
+                {NavbarList.map((items) => (
+                  <li
+                    key={items.title}
+                    className="hover:bg-sky-300 text-[#05055F] p-2 rounded-xl"
+                  >
+                    <Link to={items.to}>{items.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 }

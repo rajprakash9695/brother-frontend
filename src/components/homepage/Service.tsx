@@ -3,6 +3,7 @@ import ServiceCard from '../ServiceCard';
 import 'swiper/css/navigation';
 import CService from '../../constant/service';
 import { TiTick } from 'react-icons/ti';
+import { Autoplay, Navigation } from 'swiper/modules';
 
 export default function Service() {
   return (
@@ -49,15 +50,16 @@ export default function Service() {
               effect={'slide'}
               grabCursor={true}
               loop
-              spaceBetween={10}
+              spaceBetween={50}
               autoplay={{
-                delay: 1000,
+                delay: 1500,
                 pauseOnMouseEnter: true,
               }}
               initialSlide={1}
-              slidesPerView={1.2}
+              slidesPerView={1.3}
               centeredSlides={true}
-              className="mySwiper text-white  "
+              modules={[Autoplay, Navigation]}
+              className="mySwiper text-white"
             >
               {CService.map((items) => (
                 <SwiperSlide>
