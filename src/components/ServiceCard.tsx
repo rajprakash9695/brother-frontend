@@ -18,7 +18,7 @@ export default function ServiceCard({
 }: IProps) {
   return (
     <div>
-      <div className=" w-64 md:w-80  box-content p-3 md:p-6 border-2 shadow-xl  rounded-xl bg-white">
+      <div className=" w-64 md:w-80 min-h-[270px]   box-content p-3 md:p-6 border-2 md:shadow-xl  rounded-xl bg-white">
         <div className="h-16 md:h-20 md:w-20 object-cover  w-fit">
           <img src={img} alt={title} className="w-full h-full" />
         </div>

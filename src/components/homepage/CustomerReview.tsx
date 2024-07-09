@@ -61,7 +61,7 @@ export default function CustomReview() {
             effect={'slide'}
             grabCursor={true}
             loop
-            spaceBetween={50}
+            spaceBetween={40}
             autoplay={{
               delay: 1500,
               pauseOnMouseEnter: true,

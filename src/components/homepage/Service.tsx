@@ -50,13 +50,13 @@ export default function Service() {
               effect={'slide'}
               grabCursor={true}
               loop
-              spaceBetween={50}
+              spaceBetween={40}
               autoplay={{
                 delay: 1500,
                 pauseOnMouseEnter: true,
               }}
               initialSlide={1}
-              slidesPerView={1.3}
+              slidesPerView={1.25}
               centeredSlides={true}
               modules={[Autoplay, Navigation]}
               className="mySwiper text-white"
