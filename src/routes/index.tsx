@@ -13,7 +13,7 @@ export default function Routes() {
       path: '',
       element: <MainLayout />,
       children: [
-        { path: '', element: <Home /> },
+        { path: '/', element: <Home /> },
         { path: '/about', element: <About /> },
         { path: '/service', element: <Services /> },
         { path: '/contact', element: <Contacts /> },

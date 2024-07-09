@@ -9,7 +9,7 @@ export default function MainLayout() {
     <div>
       {!isPageNotFound && <Navbar />}
       <Outlet />
-      {!isPageNotFound && <Footer /> && <Navbar />}
+      {!isPageNotFound && <Footer />}
     </div>
   );
 }
