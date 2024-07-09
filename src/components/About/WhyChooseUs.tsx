@@ -3,9 +3,9 @@ import ChooseCard from '../ChooseCard';
 
 export default function WhyChooseUs() {
   return (
-    <div className="bg-[#F0F7FF] py-32">
+    <div className="bg-[#F0F7FF] py-10 md:py-32">
       <div className="max-w-screen-xl mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
           <div>
             <img src="/about/story.png" alt="Choose" className="w-full" />
           </div>

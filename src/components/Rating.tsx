@@ -6,7 +6,7 @@ export default function Rating() {
   return (
     <div className="max-w-screen-xl mx-auto ">
       <div className="heroCustom rounded-2xl p-10">
-        <div className="grid md:grid-cols-2 gap-16">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-16">
           <div className="flex flex-wrap gap-8 md:gap-10  ">
             {CRating.map((rating) => (
               <>
@@ -24,7 +24,7 @@ export default function Rating() {
               Connect with our team to discuss where we can add value in your
               process
             </p>
-            <p className=" text-sm md:text-lg my-8">
+            <p className=" text-sm md:text-lg my-4 md:my-8">
               Our experts offer tailored solutions to <br /> meet your unique
               needs
             </p>

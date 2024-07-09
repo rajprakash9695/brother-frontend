@@ -11,7 +11,7 @@ export default function Service() {
       <div className="max-w-screen-xl mx-auto px-4 ">
         <div className="my-10 md:my-32">
           <div className="max-w-screen-md mx-auto text-center mb-10 md:mb-20">
-            <h1 className="text-2xl md:text-5xl font-bold mb-4 md:mb-8">
+            <h1 className="text-2xl md:text-4xl font-bold mb-4 md:mb-8">
               Our Services
             </h1>
             <p className="text-gray-500 text-base md:text-lg">

@@ -2,12 +2,11 @@ import { SwiperSlide, Swiper } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Autoplay, Navigation } from 'swiper/modules';
-import CustomReviewCard from '../CustomerReviewCard';
-import CReview from '../../constant/review';
 import { VscArrowLeft, VscArrowRight } from 'react-icons/vsc';
 import { useEffect, useRef } from 'react';
+import CTeam from '../../constant/team';
 
-export default function CustomReview() {
+export default function OurTeam() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -33,12 +32,19 @@ export default function CustomReview() {
   }, []);
 
   return (
-    <div className="bg-[#F0F7FF] py-4">
+    <div className=" py-4">
       <div className="max-w-screen-xl mx-auto px-4 my-10 md:my-32">
         <div className="flex justify-between items-center">
-          <p className="text-xl md:text-4xl font-semibold max-w-96 text-center md:text-start">
-            What Our Customers Are Saying About Us
-          </p>
+          <div>
+            <h1 className="text-2xl md:text-4xl text-center md:text-start font-bold mb-2">
+              Our Team
+            </h1>
+            <p className="text-sm md:text-lg max-w-96 text-center md:text-start text-gray-500">
+              Our team of seasoned consultants brings a wealth of experience and
+              expertise to the table.
+            </p>
+          </div>
+
           <div className="hidden md:block">
             <div className="flex items-center gap-4 ">
               <button
@@ -76,16 +82,22 @@ export default function CustomReview() {
             modules={[Autoplay, Navigation]}
             id="mySwiper"
           >
-            {CReview.map((item, index) => (
-              <SwiperSlide key={index} className="mt-16">
-                <CustomReviewCard
-                  img={item.img}
-                  name={item.name}
-                  description={item.description}
-                  job={item.job}
-                  date={item.date}
-                  rating={item.rating}
-                />
+            {CTeam.map((item, index) => (
+              <SwiperSlide key={index} className="mt-16  ">
+                <div className="border rounded-t-xl  overflow-hidden">
+                  <div className="h-72 w-full ">
+                    <img
+                      src={item.img}
+                      alt={item.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  <div className="text-center my-6">
+                    <p className="font-semibold text-xl mb-2">{item.name}</p>
+                    <p className="text-gray-400 text-sm">{item.job}</p>
+                  </div>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>

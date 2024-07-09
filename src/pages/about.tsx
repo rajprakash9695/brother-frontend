@@ -1,4 +1,4 @@
-import { OurStory, WhyChooseUs } from '../components/About';
+import { OurStory, OurTeam, WhyChooseUs } from '../components/About';
 import CustomHero from '../components/CustomHero';
 
 export default function About() {
@@ -12,6 +12,7 @@ export default function About() {
         />
         <OurStory />
         <WhyChooseUs />
+        <OurTeam />
       </div>
     </div>
   );
