@@ -1,13 +1,15 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
 export default function MainLayout() {
+  const { pathname } = useLocation();
+  const isPageNotFound = pathname.includes('404');
   return (
     <div>
-      <Navbar />
+      {!isPageNotFound && <Navbar />}
       <Outlet />
-      <Footer />
+      {!isPageNotFound && <Footer /> && <Navbar />}
     </div>
   );
 }
