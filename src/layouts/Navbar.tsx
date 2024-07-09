@@ -8,7 +8,7 @@ const NavbarList = [
   { title: 'Home', to: '/' },
   { title: 'About Us', to: '/about' },
   { title: 'Services', to: '/service' },
-  { title: 'Features', to: '/feature' },
+  // { title: 'Features', to: '/feature' },
   { title: 'Contact Us', to: '/contact' },
 ];
 
@@ -31,7 +31,7 @@ function Navbar() {
             <div>
               <Link to="/">
                 <img
-                  src="https://www.shutterstock.com/image-vector/abstract-cube-logo-design-template-260nw-262214966.jpg"
+                  src="/logo.png"
                   alt="my-gold logo h-8 w-6"
                   className="h-16"
                 />

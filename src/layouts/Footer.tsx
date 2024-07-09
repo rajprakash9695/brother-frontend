@@ -7,11 +7,9 @@ export default function Footer() {
         <div className="max-w-screen-xl mx-auto px-4 py-10 md:py-16">
           <div className="grid grid-row-1 md:grid-cols-3 gap-10">
             <div>
-              <img
-                src="https://www.shutterstock.com/image-vector/abstract-cube-logo-design-template-260nw-262214966.jpg"
-                alt="my-gold logo "
-                className="h-32"
-              />
+              <Link to="/">
+                <img src="/logo.png" alt="logo" className="h-32" />
+              </Link>
               <p className="pt-4 text-sm">
                 Explore our services, success stories, <br /> and insights to
                 see how we can help you <br /> achieve your business goals.
@@ -31,9 +29,9 @@ export default function Footer() {
                   <Link to="/service">
                     <p>Services</p>
                   </Link>
-                  <Link to="/feature">
+                  {/* <Link to="/feature">
                     <p>Features</p>
-                  </Link>
+                  </Link> */}
                   <Link to="/contact">
                     <p>Contact Us</p>
                   </Link>
