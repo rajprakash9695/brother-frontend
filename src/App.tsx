@@ -1,12 +1,12 @@
-// import { Toaster } from 'react-hot-toast';
-import './App.css';
+import { Toaster } from "react-hot-toast";
+import "./App.css";
 
-import Routes from './routes';
+import Routes from "./routes";
 
 function App() {
   return (
     <div className="App">
-      {/* <Toaster
+      <Toaster
         position="top-center"
         toastOptions={{
           duration: 3000,
@@ -14,7 +14,7 @@ function App() {
             duration: 3000,
           },
         }}
-      /> */}
+      />
       <Routes />
     </div>
   );

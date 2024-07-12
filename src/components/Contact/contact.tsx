@@ -1,9 +1,11 @@
-import CConstant from '../../constant/contact';
-import CustomButton from '../CustomButton';
+import toast from "react-hot-toast";
+import CConstant from "../../constant/contact";
+import CustomButton from "../CustomButton";
 
 export default function Contact() {
   const handleClick = () => {
-    console.log('Submit');
+    toast.success("Sucess");
+    console.log("Submit");
   };
   return (
     <div>
