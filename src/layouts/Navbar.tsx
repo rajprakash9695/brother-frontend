@@ -110,6 +110,25 @@ function Navbar() {
                     </li>
                   </Link>
                 ))}
+
+                <Link to={"/login"}>
+                  <li
+                    className={`hover:bg-sky-300 text-[#05055F] p-2 rounded-xl my-1 cursor-pointer ${
+                      location.pathname === "/login" ? "bg-sky-300" : ""
+                    }`}
+                  >
+                    Login
+                  </li>
+                </Link>
+                <Link to={"/register"}>
+                  <li
+                    className={`hover:bg-sky-300 text-[#05055F] p-2 rounded-xl my-1 cursor-pointer ${
+                      location.pathname === "/register" ? "bg-sky-300" : ""
+                    }`}
+                  >
+                    Register
+                  </li>
+                </Link>
               </ul>
             </div>
           </div>
