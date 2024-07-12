@@ -1,7 +1,13 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import CustomButton from '../components/CustomButton';
 
 export default function Page404() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/');
+  };
+
   return (
     <div>
       <div className="h-[100vh] w-full">
@@ -12,13 +18,12 @@ export default function Page404() {
               Page Not Found
             </p>
             <div className="flex justify-center mt-8">
-              <Link to="/">
-                <CustomButton
-                  bgColor="[#05055F]"
-                  color="white px-6 py-2 shadow-2xl "
-                  text="Home"
-                />
-              </Link>
+              <CustomButton
+                bgColor="[#05055F]"
+                color="white px-6 py-2 shadow-2xl "
+                text="Home"
+                onClick={handleClick}
+              />
             </div>
           </div>
         </div>

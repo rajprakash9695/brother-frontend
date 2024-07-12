@@ -30,7 +30,7 @@ export default function ServiceCard({
         <ul className=" mt-2 md:mt-4 text-[15px] text-black">
           {<li>{lists}</li>}
         </ul>
-        <Link to={to}>
+        <Link to={'/service'}>
           <button className="mt-2 md:mt-4 text-sm border-b border-gray-800 flex gap-1 items-center text-black hover:text-blue-700">
             Readmore <GoArrowUpRight />
           </button>

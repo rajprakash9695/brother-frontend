@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { CgMenuRightAlt } from 'react-icons/cg';
 import { GoArrowUpRight } from 'react-icons/go';
 import { IoClose } from 'react-icons/io5';
@@ -8,12 +8,14 @@ const NavbarList = [
   { title: 'Home', to: '/' },
   { title: 'About Us', to: '/about' },
   { title: 'Services', to: '/service' },
-  // { title: 'Features', to: '/feature' },
   { title: 'Contact Us', to: '/contact' },
 ];
 
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+
+  console.log('path', location.pathname);
 
   const handleOpen = () => {
     setOpen(true);
@@ -38,19 +40,35 @@ function Navbar() {
               </Link>
             </div>
             <div className="hidden md:block">
-              <ul className="flex gap-5 ">
-                {NavbarList.map((items) => (
-                  <li>
-                    <Link to={items.to}>{items.title}</Link>
+              <ul className="flex gap-5">
+                {NavbarList.map((item) => (
+                  <li key={item.title}>
+                    <Link
+                      to={item.to}
+                      className={`${
+                        location.pathname === item.to
+                          ? 'text-[#007aff] font-bold'
+                          : ''
+                      }`}
+                    >
+                      {item.title}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="hidden md:block">
               <ul className="flex gap-5 items-center">
-                <li>
+                <li
+                  className={`${
+                    location.pathname === '/login'
+                      ? 'text-[#007aff] font-bold'
+                      : ''
+                  }`}
+                >
                   <Link to="/login">Login</Link>
                 </li>
+
                 <li>
                   <Link to="/register">
                     <button className="flex items-center gap-1 font-semibold bg-[#007aff] text-white px-5 py-4 rounded-full">
@@ -62,9 +80,15 @@ function Navbar() {
             </div>
             <div className="md:hidden">
               {open ? (
-                <IoClose className="text-4xl" onClick={onClose} />
+                <IoClose
+                  className="text-4xl cursor-pointer"
+                  onClick={onClose}
+                />
               ) : (
-                <CgMenuRightAlt className="text-4xl" onClick={handleOpen} />
+                <CgMenuRightAlt
+                  className="text-4xl cursor-pointer"
+                  onClick={handleOpen}
+                />
               )}
             </div>
           </div>
@@ -74,14 +98,17 @@ function Navbar() {
         <div className=" w-full z-10" onClick={onClose}>
           <div className="relative">
             <div className="absolute right-0 bg-sky-100  w-44 p-2 rounded-bl-xl">
-              <ul className="leading-7 ">
-                {NavbarList.map((items) => (
-                  <li
-                    key={items.title}
-                    className="hover:bg-sky-300 text-[#05055F] p-2 rounded-xl"
-                  >
-                    <Link to={items.to}>{items.title}</Link>
-                  </li>
+              <ul className="leading-7">
+                {NavbarList.map((item) => (
+                  <Link to={item.to} key={item.title}>
+                    <li
+                      className={`hover:bg-sky-300 text-[#05055F] p-2 rounded-xl cursor-pointer ${
+                        location.pathname === item.to ? 'bg-sky-300' : ''
+                      }`}
+                    >
+                      {item.title}
+                    </li>
+                  </Link>
                 ))}
               </ul>
             </div>

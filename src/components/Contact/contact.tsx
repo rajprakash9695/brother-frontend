@@ -2,6 +2,9 @@ import CConstant from '../../constant/contact';
 import CustomButton from '../CustomButton';
 
 export default function Contact() {
+  const handleClick = () => {
+    console.log('Submit');
+  };
   return (
     <div>
       <div className="max-w-screen-xl mx-auto px-4 py-10 md:py-24">
@@ -65,6 +68,7 @@ export default function Contact() {
                   bgColor="[#007aff]"
                   text="Send Message"
                   color="white"
+                  onClick={handleClick}
                 />
               </div>
             </form>

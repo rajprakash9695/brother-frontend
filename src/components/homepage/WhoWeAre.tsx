@@ -1,6 +1,13 @@
-import CustomButton from "../CustomButton";
+import { useNavigate } from 'react-router-dom';
+import CustomButton from '../CustomButton';
 
 export default function WhoWeAre() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/contact');
+    console.log('contact');
+  };
   return (
     <div className="max-w-screen-xl mx-auto px-4 ">
       <div className="my-10 md:my-32">
@@ -52,7 +59,12 @@ export default function WhoWeAre() {
                 voluptas accusamus! Sit, sapiente harum!
               </p>
             </div>
-            <CustomButton bgColor="[#007aff]" text="Contact Us" color="white" />
+            <CustomButton
+              bgColor="[#007aff]"
+              text="Contact Us"
+              color="white"
+              onClick={handleClick}
+            />
           </div>
         </div>
       </div>

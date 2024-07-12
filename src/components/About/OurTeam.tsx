@@ -32,7 +32,7 @@ export default function OurTeam() {
   }, []);
 
   return (
-    <div className=" py-4">
+    <div className=" py-4" id="ourteam">
       <div className="max-w-screen-xl mx-auto px-4 my-10 md:my-32">
         <div className="flex justify-between items-center">
           <div>

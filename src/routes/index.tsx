@@ -6,6 +6,8 @@ import About from '../pages/about';
 import Services from '../pages/service';
 import Contacts from '../pages/contact';
 import Page404 from '../pages/page404';
+import LoginPage from '../pages/login';
+import RegisterPage from '../pages/register';
 
 export default function Routes() {
   return useRoutes([
@@ -17,7 +19,9 @@ export default function Routes() {
         { path: '/about', element: <About /> },
         { path: '/service', element: <Services /> },
         { path: '/contact', element: <Contacts /> },
-        { path: '404', element: <Page404 /> },
+        { path: '/login', element: <LoginPage /> },
+        { path: '/register', element: <RegisterPage /> },
+        { path: '/404', element: <Page404 /> },
       ],
     },
     { path: '*', element: <Navigate to="/404" replace /> },

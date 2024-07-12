@@ -3,6 +3,10 @@ import CustomButton from './CustomButton';
 import RatingCard from './RatingCard';
 
 export default function Rating() {
+  const handleClick = () => {
+    console.log('Ourteam');
+  };
+
   return (
     <div className="max-w-screen-xl mx-auto ">
       <div className="heroCustom rounded-2xl p-10">
@@ -28,11 +32,14 @@ export default function Rating() {
               Our experts offer tailored solutions to <br /> meet your unique
               needs
             </p>
-            <CustomButton
-              bgColor="white"
-              text="Talk to Export "
-              color="[#0A0A72]"
-            />
+            <a href="#ourteam">
+              <CustomButton
+                bgColor="white"
+                text="Talk to Export "
+                color="[#0A0A72]"
+                onClick={handleClick}
+              />
+            </a>
           </div>
         </div>
       </div>
