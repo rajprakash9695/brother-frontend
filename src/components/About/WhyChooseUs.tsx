@@ -1,5 +1,5 @@
-import CChooseCard from '../../constant/chooseCard';
-import ChooseCard from '../ChooseCard';
+import CChooseCard from "../../constant/chooseCard";
+import ChooseCard from "../ChooseCard";
 
 export default function WhyChooseUs() {
   return (
@@ -7,7 +7,11 @@ export default function WhyChooseUs() {
       <div className="max-w-screen-xl mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
           <div>
-            <img src="/about/story.png" alt="Choose" className="w-full" />
+            <img
+              src="/about/story.png"
+              alt="Choose"
+              className="w-full rounded-xl"
+            />
           </div>
           <div>
             <h1 className="text-2xl md:text-4xl font-semibold">

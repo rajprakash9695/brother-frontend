@@ -1,8 +1,8 @@
-import { GoArrowUpRight } from 'react-icons/go';
+import { GoArrowUpRight } from "react-icons/go";
 
 export default function Hero() {
   return (
-    <div className=" heroCustom pt-32 md:pt-80 pb-14 md:pb-64">
+    <div className=" heroCustom  py-32 md:py-56 ">
       <div className="max-w-screen-xl  mx-auto  px-4   ">
         <div className="text-white text-center">
           <h1 className=" text-2xl md:text-6xl font-bold mb-8">

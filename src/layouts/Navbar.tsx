@@ -1,21 +1,21 @@
-import { Link, useLocation } from 'react-router-dom';
-import { CgMenuRightAlt } from 'react-icons/cg';
-import { GoArrowUpRight } from 'react-icons/go';
-import { IoClose } from 'react-icons/io5';
-import { useState } from 'react';
+import { Link, useLocation } from "react-router-dom";
+import { CgMenuRightAlt } from "react-icons/cg";
+import { GoArrowUpRight } from "react-icons/go";
+import { IoClose } from "react-icons/io5";
+import { useState } from "react";
 
 const NavbarList = [
-  { title: 'Home', to: '/' },
-  { title: 'About Us', to: '/about' },
-  { title: 'Services', to: '/service' },
-  { title: 'Contact Us', to: '/contact' },
+  { title: "Home", to: "/" },
+  { title: "About Us", to: "/about" },
+  { title: "Services", to: "/service" },
+  { title: "Contact Us", to: "/contact" },
 ];
 
 function Navbar() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
-  console.log('path', location.pathname);
+  console.log("path", location.pathname);
 
   const handleOpen = () => {
     setOpen(true);
@@ -47,8 +47,8 @@ function Navbar() {
                       to={item.to}
                       className={`${
                         location.pathname === item.to
-                          ? 'text-[#007aff] font-bold'
-                          : ''
+                          ? "text-[#007aff] font-bold"
+                          : ""
                       }`}
                     >
                       {item.title}
@@ -61,9 +61,9 @@ function Navbar() {
               <ul className="flex gap-5 items-center">
                 <li
                   className={`${
-                    location.pathname === '/login'
-                      ? 'text-[#007aff] font-bold'
-                      : ''
+                    location.pathname === "/login"
+                      ? "text-[#007aff] font-bold"
+                      : ""
                   }`}
                 >
                   <Link to="/login">Login</Link>
@@ -102,8 +102,8 @@ function Navbar() {
                 {NavbarList.map((item) => (
                   <Link to={item.to} key={item.title}>
                     <li
-                      className={`hover:bg-sky-300 text-[#05055F] p-2 rounded-xl cursor-pointer ${
-                        location.pathname === item.to ? 'bg-sky-300' : ''
+                      className={`hover:bg-sky-300 text-[#05055F] p-2 rounded-xl my-1 cursor-pointer ${
+                        location.pathname === item.to ? "bg-sky-300" : ""
                       }`}
                     >
                       {item.title}

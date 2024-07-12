@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
-import CustomButton from '../components/CustomButton';
+import React, { useState } from "react";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle login logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
-  };
-
-  const handleClick = () => {
-    console.log('Enter Password');
+    console.log("Email:", email);
+    console.log("Password:", password);
   };
 
   return (
