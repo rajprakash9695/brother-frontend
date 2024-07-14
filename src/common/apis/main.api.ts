@@ -1,17 +1,17 @@
-import { AxiosResponse } from "axios";
-import axiosInstance from "../../utils/axios";
+import { AxiosResponse } from 'axios';
+import axiosInstance from '../../utils/axios';
 import {
   IAPIResponse,
   IDeleteAPI,
   IGetAPI,
   IPatchAPI,
   IPostAPI,
-} from "../interface";
-import toast from "react-hot-toast";
+} from '../interface';
+import toast from 'react-hot-toast';
 
 const EmptyBadRequest = {
-  errors: "Bad Request",
-  message: "Oops something went wrong",
+  errors: 'Bad Request',
+  message: 'Oops something went wrong',
   status: 400,
 };
 
@@ -115,6 +115,11 @@ const handleAPIReturn = async (
       return result || EmptyBadRequest;
     }
 
+    if (result.status >= 400) {
+      //@ts-ignore
+      return toast.error(result?.message);
+    }
+
     const { data } = result;
     if (showToast) {
       if (data?.error || data?.status >= 400)
@@ -123,7 +128,7 @@ const handleAPIReturn = async (
         );
       else
         toast.success(
-          message ? message : data?.message ? data?.message : "Success"
+          message ? message : data?.message ? data?.message : 'Success'
         );
     }
     return data;
