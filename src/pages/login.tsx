@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 import { postApi } from '../common/apis/main.api';
 import { BACKEND_API } from '../config';
+import { ELocalStorageKeys } from '../common/enums';
 
 interface ILogin {
   email: string;
@@ -25,21 +26,33 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   const handleSubmit = async (values: ILogin) => {
-    const res = await postApi({
-      url: `${BACKEND_API}/user/login`,
-      values,
-      showToast: true,
-    });
+    try {
+      const res = await postApi({
+        url: `${BACKEND_API}/user/login`,
+        values,
+        showToast: true,
+      });
 
-    // console.log('res', res.data);
+      if (!res.data) {
+        return;
+      }
 
-    if (res.status === 200) {
+      localStorage.setItem(
+        ELocalStorageKeys.ACCESS_TOKEN,
+        res?.data?.user?.token
+      );
       navigate('/');
+    } catch (error) {
+      console.error(error);
     }
+
+    // if (res.status === 200) {
+    //
+    // }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 px-2">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center text-black">
           Login
