@@ -80,7 +80,7 @@ function Navbar() {
                       Welcome {auth?.user?.name.toUpperCase()} !
                     </li>
                     <li
-                      className="flex items-center cursor-pointer  border border-[#007aff] px-3 py-1.5 rounded-full shadow-md hover: shadow-xl "
+                      className="flex items-center cursor-pointer  border border-[#007aff] px-3 py-1.5 rounded-full shadow-md hover: shadow-xl  duration-500 hover:bg-sky-700 hover:text-white"
                       onClick={handleLogout}
                       title="Logout"
                     >

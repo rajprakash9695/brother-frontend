@@ -3,6 +3,7 @@ import { Outlet, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import useAuth from '../hooks/useAuth';
+import toast from 'react-hot-toast';
 
 export default function MainLayout() {
   const { pathname } = useLocation();
@@ -13,6 +14,7 @@ export default function MainLayout() {
     !auth?.user?.name &&
     !['/login', '/register', '/404'].includes(pathname)
   ) {
+    toast.error('login is required');
     return <Navigate to="/login" replace />;
   }
 
