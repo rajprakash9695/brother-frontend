@@ -27,7 +27,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   const auth = useAuth();
-  console.log('🚀 ~ LoginPage ~ user:', auth);
+  // console.log('🚀 ~ LoginPage ~ user:', auth);
 
   const handleSubmit = async (values: ILogin) => {
     try {
@@ -52,10 +52,6 @@ export default function LoginPage() {
     } catch (error) {
       console.error(error);
     }
-
-    // if (res.status === 200) {
-    //
-    // }
   };
 
   return (

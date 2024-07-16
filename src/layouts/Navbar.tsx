@@ -14,7 +14,7 @@ const NavbarList = [
 
 function Navbar() {
   const auth = useAuth();
-  console.log('🚀 ~ Navbar ~ auth:', auth);
+  // console.log('🚀 ~ Navbar ~ auth:', auth);
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
@@ -29,7 +29,7 @@ function Navbar() {
   };
 
   const handleLogout = () => {
-    console.log('logout');
+    // console.log('logout');
     auth?.logout();
   };
 
@@ -79,14 +79,17 @@ function Navbar() {
                     <li className="mr-20 font-medium" title={auth?.user?.name}>
                       Welcome {auth?.user?.name.toUpperCase()} !
                     </li>
-                    <li>
+                    <li
+                      className="flex items-center cursor-pointer  border border-[#007aff] px-3 py-1.5 rounded-full shadow-md hover: shadow-xl "
+                      onClick={handleLogout}
+                      title="Logout"
+                    >
                       <img
                         src="https://img.icons8.com/?size=64&id=44001&format=png"
                         alt="logout"
-                        className="h-10 cursor-pointer"
-                        title="Logout"
-                        onClick={handleLogout}
+                        className="h-6"
                       />
+                      <p>Logout</p>
                     </li>
                   </ul>
                 ) : (
@@ -136,8 +139,8 @@ function Navbar() {
                 {NavbarList.map((item) => (
                   <Link to={item.to} key={item.title}>
                     <li
-                      className={`hover:bg-sky-300 text-[#05055F] p-2 rounded-xl my-1 cursor-pointer ${
-                        location.pathname === item.to ? 'bg-sky-300' : ''
+                      className={`hover:bg-sky-300 text-[#05055F] p-2 rounded-xl my-1 cursor-pointer hover:ml-1 duration-500  ${
+                        location.pathname === item.to ? 'bg-sky-300 ml-1' : ''
                       }`}
                     >
                       {item.title}
@@ -147,20 +150,21 @@ function Navbar() {
                 {auth?.user?.name ? (
                   <li
                     onClick={handleLogout}
-                    className="hover:bg-sky-300 text-[#05055F] p-2 rounded-xl my-1 cursor-pointer"
+                    className="hover:bg-sky-300 text-[#05055F] p-2 rounded-xl my-1 cursor-pointer flex items-center hover:ml-1  gap-1 duration-500 "
                   >
                     <img
                       src="https://img.icons8.com/?size=64&id=44001&format=png"
                       alt="logout"
-                      className="h-8 cursor-pointer"
+                      className="h-6 "
                       title="Logout"
-                    />
+                    />{' '}
+                    <p>Logout</p>
                   </li>
                 ) : (
                   <ul>
                     <Link to={'/login'}>
                       <li
-                        className={`hover:bg-sky-300 text-[#05055F] p-2 rounded-xl my-1 cursor-pointer ${
+                        className={`hover:bg-sky-300 text-[#05055F] p-2 rounded-xl my-1 cursor-pointer  ${
                           location.pathname === '/login' ? 'bg-sky-300' : ''
                         }`}
                       >
