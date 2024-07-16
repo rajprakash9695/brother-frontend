@@ -1,5 +1,5 @@
-import CChooseCard from "../../constant/chooseCard";
-import ChooseCard from "../ChooseCard";
+import CChooseCard from '../../constant/chooseCard';
+import ChooseCard from '../ChooseCard';
 
 export default function WhyChooseUs() {
   return (
@@ -23,11 +23,12 @@ export default function WhyChooseUs() {
               we can add value.
             </p>
             <div className="flex gap-4 flex-wrap  ">
-              {CChooseCard.map((item) => (
+              {CChooseCard.map((item, index) => (
                 <ChooseCard
                   img={item.img}
                   title={item.title}
                   description={item.description}
+                  key={index}
                 />
               ))}
             </div>

@@ -3,6 +3,7 @@ import { CgMenuRightAlt } from 'react-icons/cg';
 import { GoArrowUpRight } from 'react-icons/go';
 import { IoClose } from 'react-icons/io5';
 import { useState } from 'react';
+import useAuth from '../hooks/useAuth';
 
 const NavbarList = [
   { title: 'Home', to: '/' },
@@ -12,6 +13,8 @@ const NavbarList = [
 ];
 
 function Navbar() {
+  const auth = useAuth();
+  console.log('🚀 ~ Navbar ~ auth:', auth);
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
@@ -23,6 +26,11 @@ function Navbar() {
 
   const onClose = () => {
     setOpen(false);
+  };
+
+  const handleLogout = () => {
+    console.log('logout');
+    auth?.logout();
   };
 
   return (
@@ -57,25 +65,51 @@ function Navbar() {
                 ))}
               </ul>
             </div>
+            <div className="md:hidden">
+              {auth?.user.name && (
+                <p className="font-medium">
+                  Welcome {auth?.user?.name.toUpperCase()} !
+                </p>
+              )}
+            </div>
             <div className="hidden md:block">
               <ul className="flex gap-5 items-center">
-                <li
-                  className={`${
-                    location.pathname === '/login'
-                      ? 'text-[#007aff] font-bold'
-                      : ''
-                  }`}
-                >
-                  <Link to="/login">Login</Link>
-                </li>
+                {auth?.user.name ? (
+                  <ul className="flex items-center">
+                    <li className="mr-20 font-medium" title={auth?.user?.name}>
+                      Welcome {auth?.user?.name.toUpperCase()} !
+                    </li>
+                    <li>
+                      <img
+                        src="https://img.icons8.com/?size=64&id=44001&format=png"
+                        alt="logout"
+                        className="h-10 cursor-pointer"
+                        title="Logout"
+                        onClick={handleLogout}
+                      />
+                    </li>
+                  </ul>
+                ) : (
+                  <ul className="flex gap-5 items-center">
+                    <li
+                      className={`${
+                        location.pathname === '/login'
+                          ? 'text-[#007aff] font-bold'
+                          : ''
+                      }`}
+                    >
+                      <Link to="/login">Login</Link>
+                    </li>
 
-                <li>
-                  <Link to="/register">
-                    <button className="flex items-center gap-1 font-semibold bg-[#007aff] text-white px-5 py-4 rounded-full">
-                      Register <GoArrowUpRight />
-                    </button>
-                  </Link>
-                </li>
+                    <li>
+                      <Link to="/register">
+                        <button className="flex items-center gap-1 font-semibold bg-[#007aff] text-white px-5 py-4 rounded-full">
+                          Register <GoArrowUpRight />
+                        </button>
+                      </Link>
+                    </li>
+                  </ul>
+                )}
               </ul>
             </div>
             <div className="md:hidden">
@@ -110,25 +144,40 @@ function Navbar() {
                     </li>
                   </Link>
                 ))}
-
-                <Link to={'/login'}>
+                {auth?.user?.name ? (
                   <li
-                    className={`hover:bg-sky-300 text-[#05055F] p-2 rounded-xl my-1 cursor-pointer ${
-                      location.pathname === '/login' ? 'bg-sky-300' : ''
-                    }`}
+                    onClick={handleLogout}
+                    className="hover:bg-sky-300 text-[#05055F] p-2 rounded-xl my-1 cursor-pointer"
                   >
-                    Login
+                    <img
+                      src="https://img.icons8.com/?size=64&id=44001&format=png"
+                      alt="logout"
+                      className="h-8 cursor-pointer"
+                      title="Logout"
+                    />
                   </li>
-                </Link>
-                <Link to={'/register'}>
-                  <li
-                    className={`hover:bg-sky-300 text-[#05055F] p-2 rounded-xl my-1 cursor-pointer ${
-                      location.pathname === '/register' ? 'bg-sky-300' : ''
-                    }`}
-                  >
-                    Register
-                  </li>
-                </Link>
+                ) : (
+                  <ul>
+                    <Link to={'/login'}>
+                      <li
+                        className={`hover:bg-sky-300 text-[#05055F] p-2 rounded-xl my-1 cursor-pointer ${
+                          location.pathname === '/login' ? 'bg-sky-300' : ''
+                        }`}
+                      >
+                        Login
+                      </li>
+                    </Link>
+                    <Link to={'/register'}>
+                      <li
+                        className={`hover:bg-sky-300 text-[#05055F] p-2 rounded-xl my-1 cursor-pointer ${
+                          location.pathname === '/register' ? 'bg-sky-300' : ''
+                        }`}
+                      >
+                        Register
+                      </li>
+                    </Link>
+                  </ul>
+                )}
               </ul>
             </div>
           </div>

@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { postApi } from '../common/apis/main.api';
 import { BACKEND_API } from '../config';
 import { ELocalStorageKeys } from '../common/enums';
+import useAuth from '../hooks/useAuth';
 
 interface ILogin {
   email: string;
@@ -25,6 +26,9 @@ const loginSchema = Yup.object().shape({
 export default function LoginPage() {
   const navigate = useNavigate();
 
+  const auth = useAuth();
+  console.log('🚀 ~ LoginPage ~ user:', auth);
+
   const handleSubmit = async (values: ILogin) => {
     try {
       const res = await postApi({
@@ -37,6 +41,9 @@ export default function LoginPage() {
         return;
       }
 
+      if (res.data) {
+        auth?.setUser(res?.data?.user);
+      }
       localStorage.setItem(
         ELocalStorageKeys.ACCESS_TOKEN,
         res?.data?.user?.token
