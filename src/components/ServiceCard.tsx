@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { GoArrowUpRight } from 'react-icons/go';
-import { motion, useScroll } from 'framer-motion';
-import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface IProps {
   img: string;
@@ -18,8 +17,6 @@ export default function ServiceCard({
   lists,
   to,
 }: IProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <motion.div whileHover={{ scale: 1.1 }} className="duration-400">
       <div className="  w-64 md:w-80 min-h-[270px]   box-content p-3 md:p-6 border-2 md:shadow-xl  rounded-xl bg-white">
