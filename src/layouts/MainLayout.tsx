@@ -24,7 +24,7 @@ export default function MainLayout() {
       {!isPageNotFound && <Navbar />}
 
       <Outlet />
-      <Pointer />
+      {/* <Pointer /> */}
       {!isPageNotFound && <Footer />}
     </div>
   );
