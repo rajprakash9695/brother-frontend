@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
+import Pointer from '../components/Pointer';
 
 export default function MainLayout() {
   const { pathname } = useLocation();
@@ -21,7 +22,9 @@ export default function MainLayout() {
   return (
     <div>
       {!isPageNotFound && <Navbar />}
+
       <Outlet />
+      <Pointer />
       {!isPageNotFound && <Footer />}
     </div>
   );

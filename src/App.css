@@ -7,3 +7,22 @@
 .heroCustom {
   background: linear-gradient(97.75deg, #1e1e9a -30.35%, #007aff 115.26%);
 }
+
+.babu {
+  background: linear-gradient(
+    103.42deg,
+    rgba(0, 3, 9, 0.3) 20.67%,
+    rgba(1, 43, 90, 0.270822) 47.01%,
+    rgba(1, 148, 254, 0.159) 66.96%,
+    rgba(4, 34, 107, 0.072) 76.55%
+  );
+}
+
+.botton {
+  background: linear-gradient(
+    90deg,
+    #000618 2.31%,
+    #00c3fd 47.25%,
+    #000618 99.25%
+  );
+}
